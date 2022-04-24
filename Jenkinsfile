@@ -23,7 +23,7 @@ python manage.py test;
 
     stage('UnitTest') {
       steps {
-        sh '''source venv/bin/activate;
+        sh '''source ../venv/bin/activate;
 python manage.py test;'''
       }
     }
