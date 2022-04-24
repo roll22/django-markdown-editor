@@ -23,8 +23,8 @@ python manage.py test;
 
     stage('UnitTest') {
       steps {
-        sh '''pwd;
-source ../venv/bin/activate;
+        sh '''source venv/bin/activate;
+cd martor_demo;
 python manage.py test;'''
       }
     }
