@@ -16,9 +16,23 @@ cd martor_demo;
 python manage.py makemigrations;
 python manage.py migrate;
 python manage.py test;
-python manage.py check --deploy;
-python manage.py collectstatic -c --noinput;
+
 '''
+      }
+    }
+
+    stage('UnitTest') {
+      steps {
+        sh '''source venv/bin/activate;
+python manage.py test;'''
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh '''source venv/bin/activate;
+python manage.py check --deploy;
+python manage.py collectstatic -c --noinput;'''
       }
     }
 
